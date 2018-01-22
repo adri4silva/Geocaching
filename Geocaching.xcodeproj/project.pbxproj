@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		20134CA32015EFFD00807B79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20134CA22015EFFD00807B79 /* AppDelegate.swift */; };
-		20134CA52015EFFD00807B79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20134CA42015EFFD00807B79 /* ViewController.swift */; };
+		20134CA52015EFFD00807B79 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20134CA42015EFFD00807B79 /* MapViewController.swift */; };
 		20134CA82015EFFD00807B79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20134CA62015EFFD00807B79 /* Main.storyboard */; };
 		20134CAA2015EFFD00807B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20134CA92015EFFD00807B79 /* Assets.xcassets */; };
 		20134CAD2015EFFD00807B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20134CAB2015EFFD00807B79 /* LaunchScreen.storyboard */; };
+		202D9EAD20164C4400321530 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D9EAC20164C4400321530 /* QRViewController.swift */; };
+		202D9EAF20164C5600321530 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D9EAE20164C5600321530 /* AboutViewController.swift */; };
+		D7AA35D62629395CF014296C /* Pods_Geocaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AB6EE669E83767C7779631 /* Pods_Geocaching.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20134C9F2015EFFD00807B79 /* Geocaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geocaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20134CA22015EFFD00807B79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		20134CA42015EFFD00807B79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		20134CA42015EFFD00807B79 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		20134CA72015EFFD00807B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20134CA92015EFFD00807B79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20134CAC2015EFFD00807B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20134CAE2015EFFD00807B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		202D9EAC20164C4400321530 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		202D9EAE20164C5600321530 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		22D21519865B5F33CF0D9BC2 /* Pods-Geocaching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geocaching.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Geocaching/Pods-Geocaching.debug.xcconfig"; sourceTree = "<group>"; };
+		25AB6EE669E83767C7779631 /* Pods_Geocaching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geocaching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91796A6AA50E1E40AA94EAB3 /* Pods-Geocaching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geocaching.release.xcconfig"; path = "Pods/Target Support Files/Pods-Geocaching/Pods-Geocaching.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AA35D62629395CF014296C /* Pods_Geocaching.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				20134CA12015EFFD00807B79 /* Geocaching */,
 				20134CA02015EFFD00807B79 /* Products */,
+				4107BF99A0E9F164B552B125 /* Pods */,
+				E25C41F6E1352344B60CB599 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +65,49 @@
 		20134CA12015EFFD00807B79 /* Geocaching */ = {
 			isa = PBXGroup;
 			children = (
+				20134CB52015F15D00807B79 /* Controller */,
+				20134CB42015F15000807B79 /* View */,
 				20134CA22015EFFD00807B79 /* AppDelegate.swift */,
-				20134CA42015EFFD00807B79 /* ViewController.swift */,
-				20134CA62015EFFD00807B79 /* Main.storyboard */,
 				20134CA92015EFFD00807B79 /* Assets.xcassets */,
 				20134CAB2015EFFD00807B79 /* LaunchScreen.storyboard */,
 				20134CAE2015EFFD00807B79 /* Info.plist */,
 			);
 			path = Geocaching;
+			sourceTree = "<group>";
+		};
+		20134CB42015F15000807B79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20134CA62015EFFD00807B79 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20134CB52015F15D00807B79 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				20134CA42015EFFD00807B79 /* MapViewController.swift */,
+				202D9EAC20164C4400321530 /* QRViewController.swift */,
+				202D9EAE20164C5600321530 /* AboutViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4107BF99A0E9F164B552B125 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22D21519865B5F33CF0D9BC2 /* Pods-Geocaching.debug.xcconfig */,
+				91796A6AA50E1E40AA94EAB3 /* Pods-Geocaching.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E25C41F6E1352344B60CB599 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25AB6EE669E83767C7779631 /* Pods_Geocaching.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20134CB12015EFFD00807B79 /* Build configuration list for PBXNativeTarget "Geocaching" */;
 			buildPhases = (
+				70B9448CA306E85D38DC1FAC /* [CP] Check Pods Manifest.lock */,
 				20134C9B2015EFFD00807B79 /* Sources */,
 				20134C9C2015EFFD00807B79 /* Frameworks */,
 				20134C9D2015EFFD00807B79 /* Resources */,
+				1AC27F1662034C38E94E2E26 /* [CP] Embed Pods Frameworks */,
+				4DABDE36804ABFACEB637FA8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +180,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1AC27F1662034C38E94E2E26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geocaching/Pods-Geocaching-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DABDE36804ABFACEB637FA8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Geocaching/Pods-Geocaching-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geocaching/Pods-Geocaching-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70B9448CA306E85D38DC1FAC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Geocaching-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		20134C9B2015EFFD00807B79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20134CA52015EFFD00807B79 /* ViewController.swift in Sources */,
+				20134CA52015EFFD00807B79 /* MapViewController.swift in Sources */,
 				20134CA32015EFFD00807B79 /* AppDelegate.swift in Sources */,
+				202D9EAF20164C5600321530 /* AboutViewController.swift in Sources */,
+				202D9EAD20164C4400321530 /* QRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +378,7 @@
 		};
 		20134CB22015EFFD00807B79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22D21519865B5F33CF0D9BC2 /* Pods-Geocaching.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +394,7 @@
 		};
 		20134CB32015EFFD00807B79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91796A6AA50E1E40AA94EAB3 /* Pods-Geocaching.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
