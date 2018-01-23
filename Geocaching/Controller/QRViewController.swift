@@ -102,19 +102,20 @@ class QRViewController: UIViewController {
             return
         }
 
-        let alertPrompt = UIAlertController(title: "Open App", message: "You're going to open \(decodedURL)", preferredStyle: .actionSheet)
-        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
-
-            if let url = URL(string: decodedURL) {
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
-            }
-        })
+        let alertPrompt = UIAlertController(title: "Open App", message: "Has encontrado el 🏆, \(decodedURL)!!", preferredStyle: .alert)
+//        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+//
+//            if let url = URL(string: decodedURL) {
+//                if UIApplication.shared.canOpenURL(url) {
+//                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                }
+//            }
+//        })
 
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        //- TODO: Hacer el handler para volver a la pantalla anterior.
 
-        alertPrompt.addAction(confirmAction)
+        //alertPrompt.addAction(confirmAction)
         alertPrompt.addAction(cancelAction)
 
         present(alertPrompt, animated: true, completion: nil)

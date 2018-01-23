@@ -16,21 +16,6 @@ class MapViewController: UIViewController {
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
 
-    override func loadView() {
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        mapView.isMyLocationEnabled = true
-        view = mapView
-
-        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +27,9 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
 
+
+
+
         // Create a map.
         let camera = GMSCameraPosition.camera(withLatitude: 0,
                                               longitude: 0,
@@ -50,6 +38,13 @@ class MapViewController: UIViewController {
         mapView.settings.myLocationButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
+        mapView.delegate = self
+
+
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: 37.332350, longitude: -122.031999)
+        marker.title = "Treasure"
+        marker.map = mapView
 
         // Add the map to the view, hide it until we've got a location update.
         view.addSubview(mapView)
@@ -60,6 +55,8 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+
 
 
 
@@ -107,5 +104,15 @@ extension MapViewController: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
     }
+}
+
+extension MapViewController: GMSMapViewDelegate {
+
+    // MARK: GMSMapViewDelegate
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        self.performSegue(withIdentifier: "goToTreasureDetails", sender: self)
+        return true
+    }
+
 }
 
