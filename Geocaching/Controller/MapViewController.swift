@@ -15,6 +15,8 @@ class MapViewController: UIViewController {
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
+    var treasure: Treasure!
+    let vigoMarker = GMSMarker()
 
 
     override func viewDidLoad() {
@@ -40,20 +42,32 @@ class MapViewController: UIViewController {
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
 
+        treasure.latitude = 37.332350
+        treasure.longitude = -122.031999
+        treasure.name = "Apple Infinite Loop"
+        treasure.info = "Un tesoro en Cupertino. Su historia es increible."
+
 
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 37.332350, longitude: -122.031999)
-        marker.title = "Treasure"
+        marker.position = CLLocationCoordinate2D(latitude: treasure.latitude, longitude: treasure.longitude)
+        marker.title = treasure.name
         marker.map = mapView
+
+
+        vigoMarker.position = CLLocationCoordinate2D(latitude: 42.223898, longitude: -8.673432)
+        vigoMarker.title = "Casa"
+        vigoMarker.map = mapView
 
         // Add the map to the view, hide it until we've got a location update.
         view.addSubview(mapView)
         mapView.isHidden = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTreasureDetails" {
+            let treasureViewController = segue.destination as! TreasureInfoViewController
+            treasureViewController.treasure = treasure
+        }
     }
 
 

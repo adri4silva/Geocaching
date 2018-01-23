@@ -12,10 +12,20 @@ class TreasureInfoViewController: UIViewController {
 
     var initialTouchPoint: CGPoint = CGPoint(x: 0, y: 0)
 
+    var treasure: Treasure?
+    
+    
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var treasureTitleLabel: UILabel!
+    @IBOutlet weak var infoTextView: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let currentTreasure = treasure {
+            treasureTitleLabel.text = currentTreasure.name
+            
+        }
     }
 
     @IBAction func panGestureRecognizerHandler(_ sender: UIPanGestureRecognizer) {

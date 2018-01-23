@@ -13,6 +13,7 @@ class QRViewController: UIViewController {
 
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var topbar: UIView!
+    @IBOutlet weak var dismissButton: UIButton!
 
     var captureSession = AVCaptureSession()
 
@@ -90,6 +91,10 @@ class QRViewController: UIViewController {
         }
     }
 
+    @IBAction func dismissButtonAction(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -112,7 +117,9 @@ class QRViewController: UIViewController {
 //            }
 //        })
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
         //- TODO: Hacer el handler para volver a la pantalla anterior.
 
         //alertPrompt.addAction(confirmAction)
