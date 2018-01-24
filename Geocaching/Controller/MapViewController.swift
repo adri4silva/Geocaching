@@ -15,6 +15,10 @@ class MapViewController: UIViewController {
 
     let locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 1000
+    let treasure: Treasure = Treasure(title: "Apple Infinite Loop",
+                                      subtitle: "Apple",
+                                      info: "Un tesoro en Cupertino. Su historia es increible.",
+                                      coordinate: CLLocationCoordinate2D(latitude: 37.332350, longitude: -122.031999))
 
 
 
@@ -36,6 +40,8 @@ class MapViewController: UIViewController {
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         }
+
+        mapView.addAnnotation(treasure)
     }
 
     func centerMapOnLocation(location: CLLocation) {
@@ -46,6 +52,14 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.performSegue(withIdentifier: "goToTreasureDetails", sender: self)
+    }
+
+}
+
+extension MapViewController: CLLocationManagerDelegate {
 
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -81,10 +95,6 @@ extension MapViewController: MKMapViewDelegate {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
     }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-
 
 }
 

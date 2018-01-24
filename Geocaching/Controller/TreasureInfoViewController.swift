@@ -23,7 +23,7 @@ class TreasureInfoViewController: UIViewController {
         super.viewDidLoad()
 
         if let currentTreasure = treasure {
-            treasureTitleLabel.text = currentTreasure.name
+            treasureTitleLabel.text = currentTreasure.title
             
         }
     }

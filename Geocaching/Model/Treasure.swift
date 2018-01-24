@@ -7,14 +7,23 @@
 //
 
 import Foundation
+import MapKit
 
 
-class Treasure {
+class Treasure: NSObject, MKAnnotation {
 
-    var name: String = ""
-    var info: String = ""
-    var latitude: Double = 0
-    var longitude: Double = 0
+    var title: String?
+    var subtitle: String?
+    var info: String?
+    var coordinate: CLLocationCoordinate2D
     var isCatched: Bool = false
-    var persons: [Person] = []
+    var persons: [Person]?
+
+    init(title: String, subtitle: String, info: String, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.subtitle = subtitle
+        self.info = info
+        self.coordinate = coordinate
+    }
+    
 }
