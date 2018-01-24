@@ -9,7 +9,13 @@
 import UIKit
 import AVFoundation
 
+protocol RegisterTreasureDelegate {
+    func playerDidRegisterTreasure(bool: Bool)
+}
+
 class QRViewController: UIViewController {
+
+    var delegate: RegisterTreasureDelegate?
 
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var topbar: UIView!
@@ -107,7 +113,7 @@ class QRViewController: UIViewController {
             return
         }
 
-        let alertPrompt = UIAlertController(title: "Open App", message: "Has encontrado el 🏆, \(decodedURL)!!", preferredStyle: .alert)
+        let alertPrompt = UIAlertController(title: "Tesoro", message: "Has encontrado el 🏆, \(decodedURL)!!", preferredStyle: .alert)
 //        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
 //
 //            if let url = URL(string: decodedURL) {
@@ -117,13 +123,13 @@ class QRViewController: UIViewController {
 //            }
 //        })
 
-        let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel) { (action) in
+        let confirmAction = UIAlertAction(title: "Aceptar", style: .cancel) { (action) in
+            self.delegate?.playerDidRegisterTreasure(bool: true)
+            //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didRegisterTreasure"), object: nil)
             self.dismiss(animated: true, completion: nil)
         }
-        //- TODO: Hacer el handler para volver a la pantalla anterior.
 
-        //alertPrompt.addAction(confirmAction)
-        alertPrompt.addAction(cancelAction)
+        alertPrompt.addAction(confirmAction)
 
         present(alertPrompt, animated: true, completion: nil)
     }
