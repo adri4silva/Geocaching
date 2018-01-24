@@ -13,45 +13,37 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
 
+
     let locationManager = CLLocationManager()
+    var location: CLLocation?
     let regionRadius: CLLocationDistance = 1000
-    let treasure: Treasure = Treasure(title: "Apple Infinite Loop",
+    let treasure = Treasure(title: "Apple Infinite Loop",
                                       subtitle: "Apple",
                                       info: "Un tesoro en Cupertino. Su historia es increible.",
-                                      coordinate: CLLocationCoordinate2D(latitude: 37.332350, longitude: -122.031999))
-
-
-
-
-    /*        treasure.latitude = 37.332350
-     treasure.longitude = -122.031999
-     treasure.name = "Apple Infinite Loop"
-     treasure.info = "Un tesoro en Cupertino. Su historia es increible."*/
+                                      coordinate: CLLocationCoordinate2D(latitude: 42.223832, longitude: -8.673438))
+    // CLLocationCoordinate2D(latitude: 37.332350, longitude: -122.031999)
+    // CLLocationCoordinate2D(latitude: 42.223832, longitude: -8.673438)
+    var distance: CLLocationDistance?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
-        locationManager.delegate = self
-
-        if (CLLocationManager.locationServicesEnabled()) {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-        }
-
         mapView.addAnnotation(treasure)
-    }
-
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+        startReceivingLocationChanges()
     }
 
 }
 
 extension MapViewController: MKMapViewDelegate {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTreasureDetails" {
+            let treasureInfoViewController = segue.destination as! TreasureInfoViewController
+            treasureInfoViewController.treasure = treasure
+            treasureInfoViewController.distance = distance
+        }
+    }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.performSegue(withIdentifier: "goToTreasureDetails", sender: self)
@@ -61,16 +53,31 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController: CLLocationManagerDelegate {
 
+    func startReceivingLocationChanges() {
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+    }
+
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        print("Location: \(location)")
+        location = locations.last!
+        if let currentLocation = location {
+            //print("Location: \(currentLocation)")
+            centerMapOnLocation(location: currentLocation)
+            let p1 = currentLocation
+            let p2 = CLLocation(latitude: treasure.coordinate.latitude, longitude: treasure.coordinate.longitude)
 
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            distance = p1.distance(from: p2)
+        }
+    }
 
-
-        self.mapView.setRegion(region, animated: true)
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
 
     // Handle authorization for the location manager.
