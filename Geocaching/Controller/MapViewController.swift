@@ -30,9 +30,11 @@ class MapViewController: UIViewController {
         mapView.showsUserLocation = true
         locationManager.delegate = self
 
-        let userLocation = mapView.userLocation
-        if let location = userLocation.location {
-            centerMapOnLocation(location: location)
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
         }
     }
 
@@ -44,6 +46,7 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
+
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
@@ -52,16 +55,8 @@ extension MapViewController: MKMapViewDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
-        self.mapView.setRegion(region, animated: true)
 
-//        let camera = MKMapCamera(lookingAtCenter: location.coordinate, fromEyeCoordinate: location.coordinate, eyeAltitude: 2000)
-//
-//        if mapView.isHidden {
-//            mapView.isHidden = false
-//            mapView.camera = camera
-//        } else {
-//            mapView.setCamera(camera, animated: true)
-//        }
+        self.mapView.setRegion(region, animated: true)
     }
 
     // Handle authorization for the location manager.
