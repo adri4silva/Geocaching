@@ -15,7 +15,8 @@ class MapViewController: UIViewController {
 
     let locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 1000
-    let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+
+
 
 
     /*        treasure.latitude = 37.332350
@@ -23,33 +24,31 @@ class MapViewController: UIViewController {
      treasure.name = "Apple Infinite Loop"
      treasure.info = "Un tesoro en Cupertino. Su historia es increible."*/
 
-
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        centerMapOnLocation(location: initialLocation)
-    }
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        locationManager.delegate = self
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkLocationAuthorizationStatus()
-    }
-
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            mapView.showsUserLocation = true
-        } else {
-            locationManager.requestWhenInUseAuthorization()
+        let userLocation = mapView.userLocation
+        if let location = userLocation.location {
+            centerMapOnLocation(location: location)
         }
     }
 
     func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+
+}
+
+extension MapViewController: MKMapViewDelegate {
+
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+
 
 }
 

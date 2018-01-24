@@ -7,21 +7,21 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
+import CoreLocation
 import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let apiKey = "AIzaSyAafrLsMJRyuZfUwAa1MBlgSIFbYwIEQr8"
+    var locationManager: CLLocationManager?
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey(apiKey)
-        GMSPlacesClient.provideAPIKey(apiKey)
         FirebaseApp.configure()
+        locationManager = CLLocationManager()
+        locationManager?.requestWhenInUseAuthorization()
 
         
 
