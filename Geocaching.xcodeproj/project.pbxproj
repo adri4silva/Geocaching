@@ -12,6 +12,8 @@
 		20134CA82015EFFD00807B79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20134CA62015EFFD00807B79 /* Main.storyboard */; };
 		20134CAA2015EFFD00807B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20134CA92015EFFD00807B79 /* Assets.xcassets */; };
 		20134CAD2015EFFD00807B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20134CAB2015EFFD00807B79 /* LaunchScreen.storyboard */; };
+		20255C89201B6D6D00B54B8A /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20255C88201B6D6D00B54B8A /* SwipeController.swift */; };
+		20255C8B201B6DB000B54B8A /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20255C8A201B6DB000B54B8A /* PageCell.swift */; };
 		202D9EAD20164C4400321530 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D9EAC20164C4400321530 /* QRViewController.swift */; };
 		202D9EAF20164C5600321530 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D9EAE20164C5600321530 /* AboutViewController.swift */; };
 		202D9EB120166F8800321530 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202D9EB020166F8800321530 /* RegisterViewController.swift */; };
@@ -21,6 +23,7 @@
 		20AFB5672017A2BD00B0533B /* TreasureInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AFB5662017A2BD00B0533B /* TreasureInfoViewController.swift */; };
 		20AFB56A2017C18500B0533B /* Treasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AFB5692017C18500B0533B /* Treasure.swift */; };
 		20AFB56C2017C22500B0533B /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AFB56B2017C22500B0533B /* Person.swift */; };
+		20C2FD3F201A488F00F0EC48 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2FD3E201A488F00F0EC48 /* TabBarViewController.swift */; };
 		D7AA35D62629395CF014296C /* Pods_Geocaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AB6EE669E83767C7779631 /* Pods_Geocaching.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,8 @@
 		20134CA92015EFFD00807B79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20134CAC2015EFFD00807B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20134CAE2015EFFD00807B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20255C88201B6D6D00B54B8A /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
+		20255C8A201B6DB000B54B8A /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		202D9EAC20164C4400321530 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		202D9EAE20164C5600321530 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		202D9EB020166F8800321530 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +46,7 @@
 		20AFB5662017A2BD00B0533B /* TreasureInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureInfoViewController.swift; sourceTree = "<group>"; };
 		20AFB5692017C18500B0533B /* Treasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treasure.swift; sourceTree = "<group>"; };
 		20AFB56B2017C22500B0533B /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		20C2FD3E201A488F00F0EC48 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		22D21519865B5F33CF0D9BC2 /* Pods-Geocaching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geocaching.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Geocaching/Pods-Geocaching.debug.xcconfig"; sourceTree = "<group>"; };
 		25AB6EE669E83767C7779631 /* Pods_Geocaching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geocaching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91796A6AA50E1E40AA94EAB3 /* Pods-Geocaching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geocaching.release.xcconfig"; path = "Pods/Target Support Files/Pods-Geocaching/Pods-Geocaching.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				202D9EB220166F9E00321530 /* LogInViewController.swift */,
 				202D9EB420166FB900321530 /* CredentialsViewController.swift */,
 				20AFB5662017A2BD00B0533B /* TreasureInfoViewController.swift */,
+				20C2FD3E201A488F00F0EC48 /* TabBarViewController.swift */,
+				20255C88201B6D6D00B54B8A /* SwipeController.swift */,
+				20255C8A201B6DB000B54B8A /* PageCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,11 +292,14 @@
 			files = (
 				20AFB56C2017C22500B0533B /* Person.swift in Sources */,
 				20134CA52015EFFD00807B79 /* MapViewController.swift in Sources */,
+				20C2FD3F201A488F00F0EC48 /* TabBarViewController.swift in Sources */,
 				202D9EB520166FB900321530 /* CredentialsViewController.swift in Sources */,
 				20AFB5672017A2BD00B0533B /* TreasureInfoViewController.swift in Sources */,
 				20134CA32015EFFD00807B79 /* AppDelegate.swift in Sources */,
 				202D9EAF20164C5600321530 /* AboutViewController.swift in Sources */,
 				202D9EB320166F9E00321530 /* LogInViewController.swift in Sources */,
+				20255C8B201B6DB000B54B8A /* PageCell.swift in Sources */,
+				20255C89201B6D6D00B54B8A /* SwipeController.swift in Sources */,
 				202D9EB120166F8800321530 /* RegisterViewController.swift in Sources */,
 				20AFB56A2017C18500B0533B /* Treasure.swift in Sources */,
 				202D9EAD20164C4400321530 /* QRViewController.swift in Sources */,
