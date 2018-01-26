@@ -20,7 +20,7 @@ class MapViewController: UIViewController {
     let treasure = Treasure(title: "Apple Infinite Loop",
                                       subtitle: "Apple",
                                       info: "Un tesoro en Cupertino. Su historia es increible.",
-                                      coordinate: CLLocationCoordinate2D(latitude: 42.223832, longitude: -8.673438))
+                                      coordinate: CLLocationCoordinate2D(latitude: 42.237015, longitude: -8.714331))
     // CLLocationCoordinate2D(latitude: 37.332350, longitude: -122.031999)
     // CLLocationCoordinate2D(latitude: 42.223832, longitude: -8.673438)
     var distance: CLLocationDistance?
@@ -29,6 +29,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
+        // TODO: Set treasure the current annotation selected.
         mapView.addAnnotation(treasure)
         startReceivingLocationChanges()
     }

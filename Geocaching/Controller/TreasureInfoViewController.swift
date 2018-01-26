@@ -49,7 +49,7 @@ class TreasureInfoViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         // TODO: Alert diciendo que no se puede registrar el tesoro
         if let distance = distance {
-            if distance <= 70.0 {
+            if distance <= 90.0 {
                 performSegue(withIdentifier: "goToQR", sender: self)
             }
         }

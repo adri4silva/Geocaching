@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 protocol RegisterTreasureDelegate {
     func playerDidRegisterTreasure(bool: Bool)
@@ -114,14 +115,7 @@ class QRViewController: UIViewController {
         }
 
         let alertPrompt = UIAlertController(title: "Tesoro", message: "Has encontrado el 🏆, \(decodedURL)!!", preferredStyle: .alert)
-//        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
-//
-//            if let url = URL(string: decodedURL) {
-//                if UIApplication.shared.canOpenURL(url) {
-//                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                }
-//            }
-//        })
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 
         let confirmAction = UIAlertAction(title: "Aceptar", style: .cancel) { (action) in
             self.delegate?.playerDidRegisterTreasure(bool: true)
@@ -142,7 +136,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No QR code is detected"
+            messageLabel.text = "Ningún código QR detectado."
             return
         }
 
