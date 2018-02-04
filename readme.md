@@ -42,7 +42,7 @@ Explaining the MapKit basics
 
 How to locate the user using `CLLocationManager`
 
-When locating an user you must ask for permission on the Info.plist file of the project, then on code you must check that you have permission to locate that user. The following function checks if the user authorized the permissions:
+* When locating an user you must ask for permission on the Info.plist file of the project, then on code you must check that you have permission to locate that user. The following function checks if the user authorized the permissions:
 
 ```Swift
 func startReceivingLocationChanges() {
@@ -55,7 +55,7 @@ func startReceivingLocationChanges() {
 }
 ```
 
-We can handle the different options if the user didn't authorize the location permission:
+* We can handle the different options if the user didn't authorize the location permission:
 
 ```Swift
 func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -75,7 +75,7 @@ func locationManager(_ manager: CLLocationManager, didChangeAuthorization status
 }
 ```
 
-There is a function on the Delegate Class called `didUpdateLocations` that allows us to do something when the user changes the location. In our project it's the following piece of code:
+* There is a function on the Delegate Class called `didUpdateLocations` that allows us to do something when the user changes the location. In our project it's the following piece of code:
 
 ```Swift
 func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -90,7 +90,7 @@ func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:
 }
 ```
 
-It changes the Map region every time the user changes location
+* It changes the Map region every time the user changes location
 
 ```Swift
 
@@ -105,7 +105,7 @@ func centerMapOn(location: CLLocation) {
 
 Now that we have the user current location, we must perform some actions to see annotations on the mapView
 
-First of all we configure our mapView in `viewDidLoad` method of our Class
+* First of all we configure our mapView in `viewDidLoad` method of our Class
 
 ```Swift
 override func viewDidLoad() {
