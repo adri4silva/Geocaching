@@ -15,7 +15,7 @@ For this app I used the following tools
 * Firebase
 * QRCodeReader Pod
 
-If you want to learn how to use CocoaPods click [this](https://guides.cocoapods.org/using/getting-started.html) link, it will be needed to the next step
+If you want to learn how to use CocoaPods click [this](https://guides.cocoapods.org/using/getting-started.html) link, it will be needed in the next step
 
 ### Installing Dependencies
 
