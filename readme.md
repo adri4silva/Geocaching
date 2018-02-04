@@ -13,7 +13,7 @@ For this app I used the following tools
 * Firebase
 * QRCodeReader Pod
 
-If you want to learn how to use CocoaPods click [this](https://guides.cocoapods.org/using/getting-started.html) link
+If you want to learn how to use CocoaPods click [this](https://guides.cocoapods.org/using/getting-started.html) link, it will be needed to the next step
 
 ### Installing Dependencies
 
@@ -55,14 +55,66 @@ func startReceivingLocationChanges() {
 }
 ```
 
-When the user changes the location 
+We can handle the different options if the user didn't authorize the location permission:
 
-### And coding style tests
-
-Explain what these tests test and why
-
+```Swift
+func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    switch status {
+    case .restricted:
+        print("Location access was restricted.")
+    case .denied:
+        print("User denied access to location.")
+        // Display the map using the default location.
+        mapView.isHidden = false
+    case .notDetermined:
+        print("Location status not determined.")
+    case .authorizedAlways: fallthrough
+    case .authorizedWhenInUse:
+        print("Location status is OK.")
+    }
+}
 ```
-Give an example
+
+There is a function on the Delegate Class called `didUpdateLocations` that allows us to do something when the user changes the location. In our project it's the following piece of code:
+
+```Swift
+func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    location = locations.last!
+    if let currentLocation = location {
+        centerMapOnLocation(location: currentLocation)
+        let p1 = currentLocation
+        let p2 = CLLocation(latitude: treasure.coordinate.latitude, longitude: treasure.coordinate.longitude)
+
+        distance = p1.distance(from: p2)
+    }
+}
+```
+
+It changes the Map region every time the user changes location
+
+```Swift
+
+func centerMapOn(location: CLLocation) {
+    let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+    mapView.setRegion(coordinateRegion, animated: true)
+}
+```
+
+
+### Making treasure annotations on MapKit
+
+Now that we have the user current location, we must perform some actions to see annotations on the mapView
+
+First of all we configure our mapView in `viewDidLoad` method of our Class
+
+```Swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    mapView.delegate = self
+    mapView.showsUserLocation = true
+    mapView.addAnnotation(treasure)
+    startReceivingLocationChanges()
+}
 ```
 
 ## Deployment
