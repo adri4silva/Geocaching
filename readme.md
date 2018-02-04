@@ -170,4 +170,4 @@ extension MapViewController: MKMapViewDelegate {
 - [Raywenderlich MapKit Tutorial](https://www.raywenderlich.com/160517/mapkit-tutorial-getting-started)
 - [Apple User Location Authorization Documentation](https://developer.apple.com/documentation/corelocation/choosing_the_authorization_level_for_location_services)
 - [Apple Location Services Availability Documentation](https://developer.apple.com/documentation/corelocation/determining_the_availability_of_location_services)
--[Apple User Location Documentation](https://developer.apple.com/documentation/corelocation/getting_the_user_s_location)
+- [Apple User Location Documentation](https://developer.apple.com/documentation/corelocation/getting_the_user_s_location)
