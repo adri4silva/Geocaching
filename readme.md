@@ -4,6 +4,8 @@ This page explains how to build a Geocaching Social App using Swfit 4 & MapKit
 
 ## Prerequisites
 
+This is an intermediate-level tutorial, so if you don't have the neccesary knowledge, just try to level up your Swift game!
+
 ### Tools
 
 For this app I used the following tools
@@ -90,7 +92,7 @@ func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:
 }
 ```
 
-* It changes the Map region every time the user changes location
+It changes the Map region every time the user changes location and calculates the distance between the user and the selected treasure
 
 ```Swift
 
@@ -117,36 +119,47 @@ override func viewDidLoad() {
 }
 ```
 
-## Deployment
+* In this proyect we made a custom class that allowed us to make custom annotation objects
 
-Add additional notes about how to deploy this on a live system
+```Swift
+class Treasure: NSObject, MKAnnotation {
+    var title: String?
+    var subtitle: String?
+    var info: String?
+    var coordinate: CLLocationCoordinate2D
+    var isCatched: Bool = false
+    var persons: [Person]?
+}
+```
 
-## Built With
+The MKAnnotation inheritance class is the key point to make custom annotations
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+In this proyect we wanted the annotations to perform a segue to another ViewController so the next piece of code show that process
 
-## Contributing
+```Swift
+extension MapViewController: MKMapViewDelegate {
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTreasureDetails" {
+            let treasureInfoViewController = segue.destination as! TreasureInfoViewController
+            treasureInfoViewController.treasure = treasure
+            treasureInfoViewController.distance = distance
+        }
+    }
 
-## Versioning
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.performSegue(withIdentifier: "goToTreasureDetails", sender: self)
+    }
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+}
+```
+
+## Demo
+
+<p align="center">
+  <img src="http://www.giphy.com/gifs/l4pTncolcbdAlL9Ac" alt="Gif"/>
+</p>
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* **Adrian Silva** - [Web](https://adri4silva.github.io)
