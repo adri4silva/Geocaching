@@ -156,7 +156,7 @@ extension MapViewController: MKMapViewDelegate {
 
 ## Demo
 
-![Gif](http://www.giphy.com/gifs/l4pTncolcbdAlL9Ac)
+![Gif](https://media.giphy.com/media/l4pTncolcbdAlL9Ac/giphy.gif)
 
 ## Authors
 
